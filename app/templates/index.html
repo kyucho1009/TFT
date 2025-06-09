@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills & Luck</title>
+    <!--구글 폰트-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--css 파일 연결-->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="/">로고</a>
+      </div>
+      <ul class="navbar-menu">
+        <li><a href="/">홈</a></li>
+        <li><a href="/rank">랭킹</a></li>
+        <li><a href="/analysis">분석</a></li>
+        <li><a href="/contact">연락처</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-container">
+      <div class="main-logo">
+        <img
+          src="{{ url_for('static', filename='logo.png') }}"
+          alt="메인 로고"
+          class="logo-image"
+        />
+        <h1 class="logo-text">서비스 이름</h1>
+      </div>
+
+      <div class="search-box">
+        <input
+          type="text"
+          placeholder="검색어를 입력하세요..."
+          class="search-input"
+        />
+        <button class="search-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="quick-links">
+        <h3>인기 검색어</h3>
+        <div class="tags">
+          <span class="tag">#인기검색어1</span>
+          <span class="tag">#인기검색어2</span>
+          <span class="tag">#인기검색어3</span>
+          <span class="tag">#인기검색어4</span>
+        </div>
+      </div>
+
+      <div class="featured-content">
+        <div class="card">
+          <div class="card-icon">📚</div>
+          <h4>최신 문서</h4>
+          <p>새로운 문서들을 확인해보세요</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⭐</div>
+          <h4>추천 콘텐츠</h4>
+          <p>많은 사람들이 찾는 인기 콘텐츠</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📈</div>
+          <h4>트렌드</h4>
+          <p>실시간 트렌드를 확인하세요</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
