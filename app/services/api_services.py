@@ -5,7 +5,6 @@ import aiohttp
 import datetime
 import pandas as pd
 from dotenv import load_dotenv
-from db_services import save_to_database
 
 load_dotenv()
 api_key = os.getenv('api_key')
@@ -61,7 +60,7 @@ async def process_challenger_data():
     async with aiohttp.ClientSession() as session:
         challenger  = await fetch_challenger_data(session)
         challenger_df = pd.DataFrame(challenger['entries'])
-        challenger_df.to_csv('challenger_users.csv', index=False)
+        challenger_df.to_csv('src/challenger_users.csv', index=False)
         return challenger_df
 
 async def process_match_ids():
@@ -100,7 +99,7 @@ async def process_match_ids():
 async def process_match_details():
     async with aiohttp.ClientSession() as session:
         # 저장된 매치 ID 파일 읽기
-        match_ids_df = pd.read_csv('challenger_match_ids.csv')
+        match_ids_df = pd.read_csv('src/challenger_match_ids.csv')
         match_ids = match_ids_df['match_id'].tolist()
         
         # 매치 상세 정보를 저장할 리스트
@@ -166,11 +165,11 @@ async def process_match_details():
         
         # DataFrame 생성 및 저장
         match_details_df = pd.DataFrame(match_details)
-        match_details_df.to_csv('challenger_match_details.csv', index=False)
+        match_details_df.to_csv('src/challenger_match_details.csv', index=False)
         
         # 참가자 정보 DataFrame 생성 및 저장
         participant_details_df = pd.DataFrame(participant_details)
-        participant_details_df.to_csv('challenger_match_participants.csv', index=False)
+        participant_details_df.to_csv('src/challenger_match_participants.csv', index=False)
 
         print(f"수집된 매치 상세 정보 개수: {len(match_details)}")
         print(f"수집된 매치 참가자 정보 개수: {len(participant_details)}")
