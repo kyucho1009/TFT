@@ -19,7 +19,7 @@ request_header = {
 
 base_url = "https://kr.api.riotgames.com/tft/"
 match_base_url = "https://asia.api.riotgames.com/tft/match/v1/"
-account_base_url = "https://asia.api.riotgames.com/riot/account/v1/accounts/by-puuid/"
+account_base_url = "https://asia.api.riotgames.com/riot/account/v1/accounts/"
 
 # 챌린저 유저 데이터 가져오는 함수
 async def fetch_challenger_data(session: aiohttp.ClientSession):
@@ -47,6 +47,28 @@ async def fetch_match_ids(session: aiohttp.ClientSession, puuid: str, count: int
 # 매치 상세 데이터 가져오는 함수
 async def fetch_match_detail(session: aiohttp.ClientSession, match_id: str):
     url = f"{match_base_url}matches/{match_id}"
+    while True:
+        async with session.get(url, headers=request_header) as response:
+            if response.status == 429:
+                retry_after = int(response.headers.get('Retry-After', 1))
+                await asyncio.sleep(retry_after)
+                continue
+            return await response.json()
+        
+# 유저 이름 가져오는 함수
+async def fetch_user_name(session: aiohttp.ClientSession, puuid: str):
+    url = f"{account_base_url}by-puuid/{puuid}"
+    while True:
+        async with session.get(url, headers=request_header) as response:
+            if response.status == 429:
+                retry_after = int(response.headers.get('Retry-After', 1))
+                await asyncio.sleep(retry_after)
+                continue
+            return await response.json()
+
+# 이름으로 유저 검색
+async def search_by_name(session: aiohttp.ClientSession, gameName: str, tagLine:str):
+    url = f"{account_base_url}by-riot-id/{gameName}/{tagLine}"
     while True:
         async with session.get(url, headers=request_header) as response:
             if response.status == 429:
