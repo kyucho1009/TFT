@@ -53,6 +53,7 @@ body {
     margin: 0;
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .ranking-table thead th {
@@ -66,6 +67,13 @@ body {
     border: none;
     text-align: left;
 }
+
+.ranking-table thead th:nth-child(1) { width: 8%; }
+.ranking-table thead th:nth-child(2) { width: 35%; }
+.ranking-table thead th:nth-child(3) { width: 15%; }
+.ranking-table thead th:nth-child(4) { width: 12%; }
+.ranking-table thead th:nth-child(5) { width: 12%; }
+.ranking-table thead th:nth-child(6) { width: 18%; }
 
 .ranking-table tbody tr {
     transition: all 0.2s ease;
@@ -98,6 +106,7 @@ body {
     align-items: center;
     gap: 1rem;
     padding: 1rem;
+    min-width: 0;
 }
 
 .user-avatar {
@@ -113,6 +122,9 @@ body {
     font-weight: 600;
     color: var(--text-primary);
     font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .score-badge {
@@ -138,6 +150,9 @@ body {
     font-weight: 600;
     padding: 1rem;
     text-align: center;
+    min-width: 80px;
+    white-space: nowrap;
+    overflow: visible;
 }
 
 .win-rate {
