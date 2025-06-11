@@ -10,6 +10,10 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+@app.route('/test')
+def test():
+    return render_template('test.html')
+
 @app.route('/ranking')
 def ranking():
     conn = get_db_connection()
@@ -93,6 +97,7 @@ def search():
                          game_name=game_name,
                          tag_line=tag_line,
                          match_details=match_details)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
