@@ -2,6 +2,8 @@ body, html {
     height: 100%;
     margin:0;
     font-family: Arial, sans-serif;
+    padding-top: 60px;
+    background-color: #f2f2f2;
 }
 
 .navbar {
@@ -9,7 +11,7 @@ body, html {
     top: 0;
     width: 100%;
     height: 60px;
-    background-color: #333;
+    background-color: #2e83f2;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,23 +20,24 @@ body, html {
     z-index: 1000;
 }
 
-.navbar-left {
-    color: white;
+.navbar-left a {
+    color: #f2f2f2;
     font-size: 20px;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .navbar-right a {
     float: left;
     display: block;
-    color: white;
-    padding: 14px 20px;
+    color: #f2f2f2;
+    padding: 14px 20px; 
     text-decoration: none;
-}
+}   
 
 .navbar-right a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #3071f2;
+    color: white;
 }
 
 .center-box {
@@ -44,6 +47,7 @@ body, html {
     align-items: center;        /* 가로 가운데 */
     height: 100vh;              /* 화면 전체 높이 */
     gap: 20px;                  /* 요소 사이 간격 */
+    margin-top: -200px;
 }
 
 .logo {
@@ -62,7 +66,7 @@ body, html {
     padding: 20px 30px;
     font-size: 20px;
     width: 600px;
-    border: 1px solid #ccc;
+    border: 2px solid #2e83f2;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
@@ -73,9 +77,9 @@ body, html {
 .search-button {
     padding: 20px 30px;
     font-size: 20px;
-    background-color: #4caf50;
+    background-color: #2e83f2;
     color: white;
-    border: 1px solid #4caf50;
+    border: 1px solid #2e83f2;
     border-left: none;
     border-radius: 12px;
     cursor: pointer;
@@ -83,5 +87,38 @@ body, html {
 }
 
 .search-button:hover {
-    background-color: #45a049;
+    background-color: #79baf2;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+}
+
+table {
+    width: 50%;
+    margin: 0 auto;
+    border: 2px solid #2e83f2;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    border: 2px solid #2e83f2;
+} 
+
+th {
+    background-color: #2e83f2;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
 }
