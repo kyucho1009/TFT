@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>랭킹 리스트</title>
+    <link rel="stylesheet" href="static/test.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href="/">TFT</a>
+      </div>
+      <div class="navbar-right">
+        <a href="/">홈</a>
+        <a href="/test_rank" class="ranking_button">랭킹</a>
+        <a href="#service">서비스</a>
+        <a href="contact">문의</a>
+      </div>
+    </div>
+    <h1>🏆 랭킹 리스트</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>순위</th>
+          <th>소환사명</th>
+          <th>LP</th>
+          <th>승</th>
+          <th>패</th>
+          <th>승률</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for player in players %}
+        <tr>
+          <td>{{loop.index}}</td>
+          <td>{{player.summoner_name}}</td>
+          <td>{{player.league_points}}</td>
+          <td>{{player.wins}}</td>
+          <td>{{player.losses}}</td>
+          <td>{{player.win_rate}}%</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
